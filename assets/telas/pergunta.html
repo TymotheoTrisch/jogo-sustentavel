@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Import Css -->
+    <link rel="stylesheet" href="../css/pergunta.css">
+    <link rel="stylesheet" href="../css/global.css">
+    
+    <title>Quiz Sustentável</title>
+</head>
+
+<body>
+    <div class="progress-bar">
+        <div class="p1"></div>
+        <div class="p2"></div>
+        <div class="p3"></div>
+        <div class="p4"></div>
+        <div class="p5"></div>
+        <div class="p6"></div>
+        <div class="p7"></div>
+        <div class="p8"></div>
+        <div class="p9"></div>
+        <div class="p10"></div>
+    </div>
+
+    <main class="container">
+        <section class="section-question">
+            <div class="div-question">
+                <p id="question" class="verde"></p>
+            </div>
+            
+            <!-- Objective -->
+            <div class="options objective">
+
+                <div class="option">
+                    <input type="radio" name="objective" data-label="Sempre">
+                    <span class="label">Sempre</span>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="objective" data-label="Frequentemente">
+                    <span class="label">Frequentemente</span>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="objective" data-label="Raramente">
+                    <span class="label">Raramente</span>
+                </div>
+
+            </div>
+            
+            <!-- Binary -->
+            <div class="options binary">
+                <div class="option">
+                    <input type="radio" name="binary" data-label="Nao">
+                    <span class="label">Não</span>
+                </div>
+                <div class="option">
+                    <input type="radio" name="binary" data-label="Sim">
+                    <span class="label">Sim</span>
+                </div>
+            </div>
+            
+            <!-- Dissertativa -->
+            <div class="container-input dissertativa">
+                <textarea name="" id="input-text" cols="30" rows="10" placeholder="Digite..."></textarea>
+            </div>
+
+            <div class="btn-proximo">
+                <button type="button" id="btn-proximo">Próximo</button>
+            </div>
+        </section><!--Fim Section questions Alternativas-->
+    </main>
+    
+    <script src="../js/pergunta.js"></script>
+</body>
+
+</html>

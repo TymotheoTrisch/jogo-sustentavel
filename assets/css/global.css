@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'Casual';
+    src: url('./fonts/Casual-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mermaid';
+    src: url('./fonts/Mermaid1001.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --background-color: #FCFAED;
+    --green: #64893A;
+    --dark-green: #8F936A;
+    --color-cream: #EAECD0;
+    --color-font-background-green: #FDFFE9;
+    
+    --font-casual: 'Casual', sans-serif;
+    --font-memaid: 'Mermaid', sans-serif;
+    --font-bricolage: 'Bricolage Grotesque', sans-serif;
+    --font-yeseva: "Yeseva One", serif;
+    --font-poppins: "Poppins", sans-serif;
+}
+
+.h1 {
+    font-size: 52px;
+}
+
+body {
+    background-color: var(--background-color);
+    width: 100%;
+}
+
+.verde {
+    color: var(--green);
+}
+
+.button {
+    color: var(--color-font-background-green);
+    background-color: var(--green);
+}

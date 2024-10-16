@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main */
+.container {
+    margin: 0 39px;
+}
+
+/* Barra de progresso */
+.progress-bar {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+.progress-bar div {
+    width: calc((100% - 100px)/ 10);
+    border-radius: 20px;
+    border: 3px solid var(--color-cream);
+}
+
+/* Progresso active */
+.progress-bar div.progress {
+    border: 3px solid var(--green);
+}
+
+/* Question */
+.div-question {
+    height: 44vh;
+    width: 80vw;
+    margin-top: 3vh;
+}
+
+#question {
+    font-family: var(--font-yeseva);
+}
+
+/* Options (Section Binary e objective) */
+.options, .container-input {
+    margin-top: 2vh;
+    height: 34vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2vh;
+}
+
+.option {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-cream);
+    color: var(--dark-green);
+    border-radius: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-family: var(--font-memaid);
+    
+}
+
+.option:has(input:checked) {
+    color: var(--color-font-background-green);
+    background-color: var(--green);
+}
+
+.option input[type="radio"] {
+    all: unset;
+    
+    position: absolute;
+    inset: 0;
+    
+    cursor: pointer;
+}
+
+.label {
+    font-size: 20px;
+}
+
+/* Estilização Section Binary */
+.binary {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Estilização Section Dissertativa */
+.container-input textarea {
+    color: var(--dark-green);
+    background-color: var(--color-cream);
+    font-family: var(--font-memaid);
+    
+    padding: 25px;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    resize: none;
+    
+    font-size: 22px;
+}
+
+/* Btn próximo */
+.btn-proximo {
+    margin: 3vh 0 0 0;
+    float: right;
+}
+
+.btn-proximo button {
+    font-family: var(--font-poppins);
+    color: var(--dark-green);
+    /* font-weight: 500; */
+    font-size: 16px;
+    background-color: transparent;
+    border: 3px solid var(--color-cream);
+    border-radius: 30px;
+    height: min(55px, 10vh);
+    width: min(130px, 35vw);
+    cursor: not-allowed;
+}
+ 
+#btn-proximo.active {
+    background-color: var(--green);
+    border: 3px solid var(--green);
+    color: var(--color-font-background-green);
+
+    cursor: pointer;
+}
+
+/* Sections */
+.dissertativa.disabled, 
+.binary.disabled, 
+.objective.disabled {
+    display: none;
+}
