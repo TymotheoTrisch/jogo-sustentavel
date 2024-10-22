@@ -1,18 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .titulo {
     font-family: var(--font-casual);
     margin: 33px 0px 0 23px;
-    width: 300px;
+    width: min(400px, 80vw);
 }
 
 .div-img {
-    width: 90vw;
-    height: 90vw;
+    width: 80vw;
+    height: 80vw;
     margin: auto;
 }
 

@@ -1,0 +1,28 @@
+.container {
+    margin: 0 39px;
+}
+
+#titulo {
+    margin-top: 2vh;
+    font-family: var(--font-yeseva);
+    font-size: 10vw;
+}
+
+.div-img {
+    width: 80vw;
+}
+
+.div-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.div-frase {
+    
+}
+
+#frase {
+    font-family: var(--font-bricolage);
+    font-size: 15px;
+}

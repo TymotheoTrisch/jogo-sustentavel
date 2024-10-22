@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Import Graficos Echarts -->
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    
+    <!-- link CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/resultados.css">
+    
+    <title>Quiz Sustentável - Resultados</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="desktop">
+            <div class="div-titulo">
+                <p id="titulo" class="verde">Você foi muito bem!</p>
+            </div>
+
+            <div class="div-img">
+                <img src="../images/imagem_.final_bom.svg" alt="">
+            </div>
+
+            <div class="div-frase">
+                <p id="frase" class="verde">Parabéns! Você tem ótimos hábitos que contribuem positivamente para o meio ambiente. Continue assim!</p>
+            </div>
+        </div>
+        
+        <div class="div-grafico" id="chart-container" style="width: 600px;height:400px;">
+            
+        </div>
+        
+        <div class="btns">
+            <button type="button" class="btn-refazer">Refazer Teste</button>
+            <button type="button" class="btn-apagar">Apagar Teste</button>
+        </div>
+    </main>
+    
+    <script src="../js/resultados.js"></script>
+    
+</body>
+
+</html>

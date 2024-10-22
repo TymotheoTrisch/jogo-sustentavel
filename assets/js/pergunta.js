@@ -27,7 +27,7 @@ radiosBinary.forEach(radio => {
 });
 
 const textarea = document.getElementById("input-text");
-textarea.addEventListener('change', verificarSelecionado);
+textarea.addEventListener('input', verificarSelecionado);
 
 textarea.addEventListener('input', function (e) {
     this.value = this.value.replace(/[^0-9]/g, '');
@@ -71,7 +71,7 @@ const sectionBinary = document.querySelector(".binary");
 
 // Função para salvar a pergunta e a resposta
 function salvarResposta(index, pergunta, resposta) {
-    console.log(resposta);
+    // console.log(resposta);
 
 
     const categoria = pergunta.category;
@@ -220,9 +220,12 @@ botaoProximo.addEventListener("click", () => {
 
     salvarResposta(perguntaAtual, perguntasSelecionadas[perguntaAtual], getResposta(perguntasSelecionadas[perguntaAtual]))
     perguntaAtual++;
-
-
-    mostrarPergunta(perguntasSelecionadas[perguntaAtual])
+    
+    if(perguntaAtual <= 9) {
+        mostrarPergunta(perguntasSelecionadas[perguntaAtual])
+    } else {
+        window.location.href = "resultados.html"
+    }
 })
 
 gerarPerguntas();
