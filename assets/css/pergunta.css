@@ -22,9 +22,14 @@
     border: 3px solid var(--green);
 }
 
+/* section */
+.section-question {
+    /* height: 100%; */
+}
+
 /* Question */
 .div-question {
-    height: 44vh;
+    height: 40vh;
     width: 80vw;
     margin-top: 3vh;
 }
@@ -34,9 +39,10 @@
 }
 
 /* Options (Section Binary e objective) */
-.options, .container-input {
+.options,
+.container-input {
     margin-top: 2vh;
-    height: 34vh;
+    height: 35vh;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -49,13 +55,13 @@
     background-color: var(--color-cream);
     color: var(--dark-green);
     border-radius: 30px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     font-family: var(--font-memaid);
-    
+
 }
 
 .option:has(input:checked) {
@@ -65,10 +71,10 @@
 
 .option input[type="radio"] {
     all: unset;
-    
+
     position: absolute;
     inset: 0;
-    
+
     cursor: pointer;
 }
 
@@ -86,19 +92,19 @@
     color: var(--dark-green);
     background-color: var(--color-cream);
     font-family: var(--font-memaid);
-    
+
     padding: 25px;
     border-radius: 30px;
     border: 0;
     outline: none;
     resize: none;
-    
+
     font-size: 22px;
 }
 
 /* Btn próximo */
 .btn-proximo {
-    margin: 3vh 0 0 0;
+    margin: 3vh 0 3vh 0;
     float: right;
 }
 
@@ -113,7 +119,7 @@
     width: min(130px, 35vw);
     cursor: not-allowed;
 }
- 
+
 #btn-proximo.active {
     background-color: var(--green);
     border: 3px solid var(--green);
@@ -123,8 +129,8 @@
 }
 
 /* Sections */
-.dissertativa.disabled, 
-.binary.disabled, 
+.dissertativa.disabled,
+.binary.disabled,
 .objective.disabled {
     display: none;
 }
@@ -135,16 +141,16 @@
         margin: auto;
         margin-top: 4vh;
     }
-    
+
     .progress-bar div {
         width: calc(100%/ 10);
     }
-    
+
     .container {
         width: 450px;
-        margin: auto;    
+        margin: auto;
     }
-    
+
     .div-question {
         width: 90%;
     }
@@ -154,12 +160,13 @@
     .progress-bar {
         width: 670px;
     }
-    
+
     .container {
-        width: 670px;  
+        width: 670px;
     }
-    
-    .options, .container-input {
+
+    .options,
+    .container-input {
         height: 30vh;
     }
 }
@@ -168,11 +175,11 @@
     .progress-bar {
         width: 90vw;
     }
-    
+
     .container {
         width: 90vw;
     }
-    
+
     .section-question {
         display: flex;
         height: 80vh;
@@ -180,22 +187,23 @@
         justify-content: space-around;
         gap: 6%;
     }
-    
+
     .div-question {
         width: min(450px, 47%);
     }
-    
-    .options, .container-input {
+
+    .options,
+    .container-input {
         height: 36vh;
         width: min(450px, 47%);
     }
-    
+
     .label {
         font-size: 1.3rem;
     }
     
     .btn-proximo {
-        position: absolute;
+        position: fixed;
         bottom: 5vh;
         right: 5vw;
     }
