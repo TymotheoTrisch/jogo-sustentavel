@@ -21,9 +21,18 @@
     height: 100%;
 }
 
-#frase {
+.div-frase p {
     font-family: var(--font-bricolage);
     font-size: 14px;
+}
+
+.frase-grafico .div-frase {
+    display: none;
+}
+
+.div-grafico {
+    width: min(390px, 100%);
+    height: 420px;
 }
 
 .btns {
@@ -82,12 +91,51 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1240px) {
     .container {
         display: flex;
+        justify-content: center;
+        gap: 120px;
+        padding-top: 10vh;
+        
         width: 100%;
         height: 100vh;
         position: relative;
+    }
+    
+    .desktop {
+        width: fit-content;
+        height: fit-content;
+    }
+    
+    #titulo {
+        margin-top: 0;
+        font-size: 62px;
+        width: 550px;
+    }
+    
+    .desktop .div-frase {
+        display: none;
+    }
+    
+    .div-img {
+        margin: 0;
+        width: 500px;
+    }
+    
+    .div-grafico {
+        width: 520px;
+        height: 520px;
+    }
+    
+    .frase-grafico .div-frase {
+        width: 500px;
+        margin-top: 1.5vh;
+        display: flex;
+    }
+    
+    .div-frase p {
+        font-size: 20px;
     }
     
     .btns {

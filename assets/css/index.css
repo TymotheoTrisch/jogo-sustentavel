@@ -67,10 +67,15 @@ button {
         display: none;
     }
     
+    .titulo {
+        font-size: 65px;
+        width: 450px;
+    }
+    
     .img-desktop {
         display: block;
-        width: 550px;
-        height: 550px;
+        width: 600px;
+        height: 600px;
     }
     
     body {
@@ -88,11 +93,13 @@ button {
     .div-texto-btn p {
         width: fit-content;
         margin-top: 10px;
+        font-size: 20px;
     }
     
     button {
         margin: 50px 30px;
         border-radius: 1px;
+        font-size: 18px;
     }
     
     

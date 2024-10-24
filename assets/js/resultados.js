@@ -5,21 +5,61 @@ var myChart = echarts.init(dom, null, {
 });
 var app = {};
 
-var option;
-
-option = {
+// Opção para o gráfico do Desktop (Gráfico de Rosas)
+var optionDesktop = {
     tooltip: {
-        trigger: 'item', 
+        trigger: 'item'
+    },
+    legend: {
+        top: 'bottom',
+        left: 'center'
+    },
+    series: [
+        {
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            padAngle: 5,
+            itemStyle: {
+                borderRadius: 10
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: 27,
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: 10, name: 'Reciclagem' },
+                { value: 52, name: 'Prod. & Energ' },
+                { value: 65, name: 'Transporte' }
+            ]
+        }
+    ]
+};
+
+// Opção para o gráfico Mobile (Gráfico de Barras)
+var optionMobile = {
+    tooltip: {
+        trigger: 'item',
         formatter: function(params) {
             return `<div>
                       <span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:${params.color};"></span>
                       ${params.data.name} <strong style="margin-left: 5px">${params.value}</strong>
                     </div>`;
         },
-        backgroundColor: '#fff',  
+        backgroundColor: '#fff',
         textStyle: {
-            color: '#636060',  
-            fontSize: 14  
+            color: '#636060',
+            fontSize: 14
         },
     },
     grid: {
@@ -28,52 +68,49 @@ option = {
         bottom: '5%',
         containLabel: true
     },
-    xAxis: [
-        {
-            type: 'category',
-            data: ['Reciclagem', 'P&E', 'Transporte'],
-            axisTick: {
-                alignWithLabel: true
-            },
-            axisLabel: {
-                fontSize: 10
-            }
+    xAxis: {
+        type: 'category',
+        data: ['Reciclagem', 'P&E', 'Transporte'],
+        axisTick: {
+            alignWithLabel: true
+        },
+        axisLabel: {
+            fontSize: 10
         }
-    ],
-    yAxis: [
-        {
-            type: 'value'
-        }
-    ],
+    },
+    yAxis: {
+        type: 'value'
+    },
     series: {
         type: 'bar',
         barWidth: '50%',
         data: [
-            { value: 10, name: "Reciclagem" }, 
-            { value: 52, name: "Prod. & Energ" }, 
+            { value: 10, name: "Reciclagem" },
+            { value: 52, name: "Prod. & Energ" },
             { value: 65, name: "Transporte" }
         ],
         itemStyle: {
-            color: '#73a373',
+            color: '#73a373'
         }
-        // color: [
-        //     '#dd6b66',
-        //     '#759aa0',
-        //     '#e69d87',
-        //     '#8dc1a9',
-        //     '#ea7e53',
-        //     '#eedd78',
-        //     '#73a373',
-        //     '#73b9bc',
-        //     '#7289ab',
-        //     '#91ca8c',
-        //     '#f49f42'
-        //   ]
     }
 };
 
-if (option && typeof option === 'object') {
-    myChart.setOption(option);
+// Função para selecionar o gráfico correto com base na largura da tela
+function setResponsiveChart() {
+    var chartContainer = document.getElementById('chart-container');
+    
+    if (window.innerWidth < 1240) {
+        myChart.setOption(optionMobile);
+    } else {
+        myChart.setOption(optionDesktop);
+    }
 }
 
-window.addEventListener('resize', myChart.resize);
+// Chamar a função ao carregar a página
+setResponsiveChart();
+
+// Redimensionar o gráfico ao mudar o tamanho da janela
+window.addEventListener('resize', function() {
+    myChart.resize(); // Ajusta o gráfico ao tamanho do container
+    setResponsiveChart(); // Verifica novamente o tipo de gráfico
+});
