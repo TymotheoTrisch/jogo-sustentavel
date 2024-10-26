@@ -31,8 +31,10 @@
 }
 
 .div-grafico {
-    width: min(390px, 100%);
+    width: min(400px, 100%);
     height: 420px;
+    margin: auto;
+    margin-top: 15px;
 }
 
 .btns {
@@ -91,11 +93,11 @@
     }
 }
 
-@media (min-width: 1240px) {
+@media(min-width: 1024px) {
     .container {
         display: flex;
         justify-content: center;
-        gap: 120px;
+        gap: 15vw;
         padding-top: 10vh;
         
         width: 100%;
@@ -110,8 +112,8 @@
     
     #titulo {
         margin-top: 0;
-        font-size: 62px;
-        width: 550px;
+        font-size: 54px;
+        width: 400px;
     }
     
     .desktop .div-frase {
@@ -120,18 +122,23 @@
     
     .div-img {
         margin: 0;
-        width: 500px;
+        width: 400px;
     }
     
     .div-grafico {
-        width: 520px;
-        height: 520px;
+        width: 400px;
+        height: 400px;
     }
     
     .frase-grafico .div-frase {
-        width: 500px;
+        width: 400px;
         margin-top: 1.5vh;
         display: flex;
+    }
+    
+    .frase-grafico .div-frase p {
+        font-size: 16px;
+        
     }
     
     .div-frase p {
@@ -149,5 +156,30 @@
     
     .btns button {
         width: 200px;
+    }
+}
+
+@media (min-width: 1240px) {
+    .container {
+        gap: 120px;
+
+    }
+    
+    #titulo {
+        font-size: 62px;
+        width: 500px;
+    }
+    
+    .div-img {
+        width: 550px;
+    }
+    
+    .div-grafico {
+        width: 520px;
+        height: 520px;
+    }
+    
+    .frase-grafico .div-frase {
+        width: 550px;
     }
 }

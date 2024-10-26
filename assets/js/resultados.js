@@ -1,4 +1,4 @@
-var dom = document.getElementById('chart-container');
+var dom = document.getElementById('chart-categoria');
 var myChart = echarts.init(dom, null, {
     renderer: 'canvas',
     useDirtyRect: false
@@ -7,6 +7,10 @@ var app = {};
 
 // Opção para o gráfico do Desktop (Gráfico de Rosas)
 var optionDesktop = {
+    title: {
+        text: 'Pontuação por Categoria',
+        left: 'center',
+    },
     tooltip: {
         trigger: 'item'
     },
@@ -48,9 +52,13 @@ var optionDesktop = {
 
 // Opção para o gráfico Mobile (Gráfico de Barras)
 var optionMobile = {
+    title: {
+        text: 'Pontuação por Categoria',
+        left: 'center',
+    },
     tooltip: {
         trigger: 'item',
-        formatter: function(params) {
+        formatter: function (params) {
             return `<div>
                       <span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:${params.color};"></span>
                       ${params.data.name} <strong style="margin-left: 5px">${params.value}</strong>
@@ -97,20 +105,105 @@ var optionMobile = {
 
 // Função para selecionar o gráfico correto com base na largura da tela
 function setResponsiveChart() {
-    var chartContainer = document.getElementById('chart-container');
-    
-    if (window.innerWidth < 1240) {
+
+    if (window.innerWidth < 1024) {
         myChart.setOption(optionMobile);
     } else {
         myChart.setOption(optionDesktop);
     }
 }
 
-// Chamar a função ao carregar a página
 setResponsiveChart();
 
-// Redimensionar o gráfico ao mudar o tamanho da janela
-window.addEventListener('resize', function() {
-    myChart.resize(); // Ajusta o gráfico ao tamanho do container
-    setResponsiveChart(); // Verifica novamente o tipo de gráfico
+window.addEventListener('resize', function () {
+    myChart.resize();
+    setResponsiveChart();
 });
+
+
+
+
+// Gráfico geral
+const pontuacaoTotal = 7;
+const maxPontuacao = 10;
+
+// Configuração do gráfico de pizza
+const optionPontuacaoTotal = {
+    title: {
+        text: 'Pontuação Total',
+        left: 'center'
+    },
+    tooltip: { show: false },
+    series: [{
+        type: 'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: { show: false },
+        data: [
+            {
+                value: pontuacaoTotal,
+                name: 'Sustentabilidade',
+                itemStyle: { color: '#73a373' }
+            },
+            {
+                value: maxPontuacao - pontuacaoTotal,
+                name: 'Restante',
+                itemStyle: { color: '#e0e0e0' }
+            }
+        ]
+    }]
+};
+
+
+const chartPontuacaoTotal = echarts.init(document.getElementById('chart-pontuacao-total'));
+chartPontuacaoTotal.setOption(optionPontuacaoTotal);
+
+// Gráfico pontuação de acertos e erros
+const optionPontuacaoPorCategoria = {
+    title: {
+        text: 'Pontuação de acertos por categoria',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        top: 'bottom',
+        
+    },
+    grid: {
+        left: '1%',
+        right: '0%',
+        bottom: '10%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        data: ['Reciclagem', 'P&E', 'Transporte']
+    },
+    series: [
+        {
+            name: 'Acertos',
+            type: 'bar',
+            data: [2, 1, 1],
+            itemStyle: { color: '#73a373' }
+        },
+        {
+            name: 'Erros',
+            type: 'bar',
+            data: [2, 2, 2],
+            itemStyle: { color: '#e0e0e0' }
+        }
+    ]
+};
+
+// Inicializa e renderiza o gráfico
+const chartPontuacaoAcertos = echarts.init(document.getElementById('chart-pontuacao-acertos'));
+chartPontuacaoAcertos.setOption(optionPontuacaoPorCategoria);

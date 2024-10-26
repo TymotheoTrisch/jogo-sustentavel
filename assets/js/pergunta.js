@@ -92,7 +92,7 @@ function salvarResposta(index, pergunta, resposta) {
 
     console.log(localStorage.getItem('pontuacoes'));
 
-    apagarDadosQuiz();
+    // apagarDadosQuiz();
 }
 
 // Função para apagar os dados do quiz
