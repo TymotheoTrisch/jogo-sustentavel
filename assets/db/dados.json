@@ -72,7 +72,7 @@
           "category": "Produto_Energia",
           "type": "quantitative",
           "question": "Quantas lâmpadas de LED você tem em sua casa?",
-          "unit": "unidades",
+          "unit": "uni",
           "correct_answer": "Maior número possível"
         },
         {
@@ -258,7 +258,7 @@
           "category": "Reciclagem",
           "type": "quantitative",
           "question": "Quantos aparelhos eletrônicos você recicla por ano?",
-          "unit": "unidades",
+          "unit": "uni",
           "correct_answer": "Maior número possível"
         }
       ]

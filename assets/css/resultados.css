@@ -30,7 +30,14 @@
     display: none;
 }
 
+.graficos {
+    gap: 30px;
+}
+
 .div-grafico {
+    /* height: 300px; */
+    /* width: 100%; */
+    /* max-width: 400px; */
     width: min(400px, 100%);
     height: 420px;
     margin: auto;
@@ -41,7 +48,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+
     background-color: var(--backgroud-color);
     padding: 30px 0 50px;
     gap: 7px;
@@ -53,16 +60,16 @@
     font-family: var(--font-poppins);
     color: var(--color-font-background-green);
     font-size: 16px;
-    
+
     border-radius: 3px;
     border: none;
     margin: auto;
     gap: 6px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     cursor: pointer;
 }
 
@@ -77,6 +84,18 @@
 
 .btn-apagar {
     background-color: #dd6b66;
+}
+
+.grafico1 {
+    grid-area: grafico1;
+}
+
+.grafico2 {
+    grid-area: grafico2;
+}
+
+.grafico3 {
+    grid-area: grafico3;
 }
 
 
@@ -95,54 +114,130 @@
 
 @media(min-width: 1024px) {
     .container {
-        display: flex;
-        justify-content: center;
-        gap: 15vw;
-        padding-top: 10vh;
-        
+        gap: 5vw;
+        padding-top: 5vh;
+
         width: 100%;
         height: 100vh;
         position: relative;
     }
-    
+
     .desktop {
         width: fit-content;
         height: fit-content;
+        margin: auto;
     }
-    
+
     #titulo {
         margin-top: 0;
-        font-size: 54px;
+        font-size: 50px;
         width: 400px;
     }
-    
+
     .desktop .div-frase {
         display: none;
     }
-    
+
     .div-img {
         margin: 0;
         width: 400px;
     }
     
+    .frase-grafico .div-frase {
+        width: 500px;
+        margin-top: 1.5vh;
+        display: flex;
+        margin: auto;
+    }
+
+    .frase-grafico .div-frase p {
+        font-size: 18px;
+
+    }
+
+    .graficos {
+        display: grid;
+        margin: auto;
+        width: fit-content;
+        margin-top: 50px;
+        grid-template-columns:  repeat(2, 450px);
+        grid-template-rows: repeat(2, 450px);
+        gap: 17px;
+
+        grid-template-areas:
+            'grafico1 grafico2'
+            'grafico3 grafico3';
+    }
+
     .div-grafico {
-        width: 400px;
-        height: 400px;
+        background-color: #f8f6ea;
+        border-radius: 20px;
+        padding: 25px;
+        width: 450px;
+        height: 450px;
+    }
+    
+    .grafico3 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1240px) {
+    #titulo {
+        font-size: 60px;
+        width: 500px;
+    }
+    
+    .div-img {
+        margin: 0;
+        width: 500px;
     }
     
     .frase-grafico .div-frase {
-        width: 400px;
-        margin-top: 1.5vh;
-        display: flex;
+        width: 550px;
     }
     
     .frase-grafico .div-frase p {
-        font-size: 16px;
-        
+        font-size: 20px;
     }
     
-    .div-frase p {
-        font-size: 20px;
+    .graficos {
+        grid-template-columns:  repeat(2, 520px);
+        grid-template-rows: repeat(2, 520px);
+    }
+    
+    .div-grafico{
+        width: 520px;
+        height: 520px;
+    }
+    
+    .grafico3 {
+        width: 100%;
+    }
+}
+
+/* @media (min-width: 1240px) {
+    .container {
+        gap: 120px;
+
+    }
+
+    #titulo {
+        font-size: 62px;
+        width: 500px;
+    }
+
+    .div-img {
+        width: 550px;
+    }
+
+    .div-grafico {
+        width: 520px;
+        height: 520px;
+    }
+
+    .frase-grafico .div-frase {
+        width: 550px;
     }
     
     .btns {
@@ -153,33 +248,8 @@
         right: 5vh;
         flex-direction: row-reverse;
     }
-    
+
     .btns button {
         width: 200px;
     }
-}
-
-@media (min-width: 1240px) {
-    .container {
-        gap: 120px;
-
-    }
-    
-    #titulo {
-        font-size: 62px;
-        width: 500px;
-    }
-    
-    .div-img {
-        width: 550px;
-    }
-    
-    .div-grafico {
-        width: 520px;
-        height: 520px;
-    }
-    
-    .frase-grafico .div-frase {
-        width: 550px;
-    }
-}
+} */

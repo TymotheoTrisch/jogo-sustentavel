@@ -71,8 +71,6 @@ const sectionBinary = document.querySelector(".binary");
 
 // Função para salvar a pergunta e a resposta
 function salvarResposta(index, pergunta, resposta) {
-    // console.log(resposta);
-
 
     const categoria = pergunta.category;
 
@@ -149,7 +147,14 @@ function mostrarPergunta(perguntaSelecionada) {
         sectionDissertativa.classList.remove('disabled');
         sectionBinary.classList.add('disabled');
         sectionObjective.classList.add('disabled');
+        
+        
+        if(perguntaSelecionada.unit != "vezes" || perguntaSelecionada.unit != "produtos" || perguntaSelecionada.unit != "uni" 
+           || perguntaSelecionada.unit != "painéis" || perguntaSelecionada.unit != "dias")
+        textarea.placeholder = "Digite em (" + perguntaSelecionada.unit + ")"
+        
     }
+    console.log(textarea.placeholder);
 
     question.innerHTML = perguntaSelecionada.question;
     adjustFontSize();
