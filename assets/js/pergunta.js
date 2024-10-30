@@ -68,10 +68,8 @@ const sectionObjective = document.querySelector(".objective");
 const sectionDissertativa = document.querySelector(".dissertativa");
 const sectionBinary = document.querySelector(".binary");
 
-
 // Função para salvar a pergunta e a resposta
 function salvarResposta(index, pergunta, resposta) {
-
     const categoria = pergunta.category;
 
     let pontuacao = JSON.parse(localStorage.getItem('pontuacoes')) || {};
@@ -87,18 +85,11 @@ function salvarResposta(index, pergunta, resposta) {
     });
 
     localStorage.setItem('pontuacoes', JSON.stringify(pontuacao));
-
-    // console.log(localStorage.getItem('pontuacoes'));
-
-    // apagarDadosQuiz();
 }
 
-
-// ============================
-// Função para gerar a pergunta
+// Função para gerar perguntas
 async function gerarPerguntas() {
     const pontuacoesSalvas = JSON.parse(localStorage.getItem('pontuacoes')) || {};
-
 
     let totalRespostas = 0;
     for (const categoria in pontuacoesSalvas) {
@@ -107,7 +98,7 @@ async function gerarPerguntas() {
 
     if (totalRespostas > 0) {
         perguntasSelecionadas = JSON.parse(localStorage.getItem('perguntas'));
-        perguntaAtual = totalRespostas; 
+        perguntaAtual = totalRespostas;
 
         if (perguntaAtual < perguntasSelecionadas.length) {
             mostrarPergunta(perguntasSelecionadas[perguntaAtual]);
@@ -118,56 +109,45 @@ async function gerarPerguntas() {
     const response = await fetch('../db/dados.json');
     const dados = await response.json();
 
-    perguntasSelecionadas = [...selecionarPerguntasPorTipo(dados, "binary", 3, "Produto_Energia"),
-        ...selecionarPerguntasPorTipo(dados, "binary", 1, "Produto_Energia"),
-        ...selecionarPerguntasPorTipo(dados, "objective", 1, "Transporte"),
-    ...selecionarPerguntasPorTipo(dados, "objective", 3, "Transporte"),
-    ...selecionarPerguntasPorTipo(dados, "objective", 1, "Reciclagem"),
-    ...selecionarPerguntasPorTipo(dados, "quantitative", 3, "Reciclagem")];
-
-    if (localStorage.getItem('perguntas')) {
-        localStorage.removeItem('perguntas')
-
-        // console.log("oi");
-        
-    }
+    perguntasSelecionadas = selecionarPerguntasSemDuplicidade(dados, [
+        { tipo: "binary", quantidade: 3, categoria: "Produto_Energia" },
+        { tipo: "objective", quantidade: 1, categoria: "Produto_Energia" },
+        { tipo: "objective", quantidade: 1, categoria: "Transporte" },
+        { tipo: "objective", quantidade: 3, categoria: "Transporte" },
+        { tipo: "objective", quantidade: 1, categoria: "Reciclagem" },
+        { tipo: "quantitative", quantidade: 3, categoria: "Reciclagem" }
+    ]);
 
     localStorage.setItem('perguntas', JSON.stringify(perguntasSelecionadas));
-    // console.log(localStorage.getItem('perguntas'));
-
 
     mostrarPergunta(perguntasSelecionadas[0]);
-
 }
 
-function selecionarPerguntasPorTipo(dados, tipo, quantidade, categoria) {
-    const perguntasFiltradas = [];
+// Função para selecionar perguntas sem duplicidade
+function selecionarPerguntasSemDuplicidade(dados, criterios) {
+    const perguntasSelecionadas = [];
 
+    criterios.forEach(criterio => {
+        const perguntasFiltradas = dados.questions
+            .filter(question => question.type === criterio.tipo && question.category === criterio.categoria)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, criterio.quantidade);
 
-
-    dados.questions.forEach(question => {
-        if (question.type === tipo && question.category === categoria) {
-            perguntasFiltradas.push(question);
-        }
+        perguntasSelecionadas.push(...perguntasFiltradas);
     });
-    perguntasFiltradas.sort(() => Math.random() - 0.5);
 
-    return perguntasFiltradas.slice(0, quantidade);
+    return perguntasSelecionadas;
 }
-
-// ============================
 
 // ==============================
 // Função para mostrar a pergunta
 function mostrarPergunta(perguntaSelecionada) {
     zerarRespostas(perguntaSelecionada);
-    // console.log(perguntaSelecionada);
 
     if (perguntaSelecionada.type === "binary") {
         sectionBinary.classList.remove('disabled');
         sectionObjective.classList.add('disabled');
         sectionDissertativa.classList.add('disabled');
-
     } else if (perguntaSelecionada.type === "objective") {
         sectionObjective.classList.remove('disabled');
         sectionDissertativa.classList.add('disabled');
@@ -177,89 +157,58 @@ function mostrarPergunta(perguntaSelecionada) {
         sectionBinary.classList.add('disabled');
         sectionObjective.classList.add('disabled');
 
-
-        if (perguntaSelecionada.unit === "dias" || perguntaSelecionada.unit === "km" || perguntaSelecionada.unit === "kg")
-            textarea.placeholder = "Digite em (" + perguntaSelecionada.unit + ")"
-
+        if (["dias", "km", "kg"].includes(perguntaSelecionada.unit)) {
+            textarea.placeholder = `Digite em (${perguntaSelecionada.unit})`;
+        }
     }
 
     question.innerHTML = perguntaSelecionada.question;
     adjustFontSize();
 
-    // Atualiza a barra de progresso
     atualizarProgresso();
-
 }
 
 // Função para atualizar a barra de progresso
 function atualizarProgresso() {
     progressBar.forEach((divProgress, index) => {
-        if (index <= perguntaAtual) {
-            divProgress.classList.add('progress');
-        } else {
-            divProgress.classList.remove('progress');
-        }
+        divProgress.classList.toggle('progress', index <= perguntaAtual);
     });
 }
 
 // Função para pegar a resposta
 function getResposta(perguntaSelecionada) {
     if (perguntaSelecionada.type === "binary") {
-        for (let option of radiosBinary) {
-            if (option.checked) {
-                return option.dataset.label;
-            }
-        }
-
+        return [...radiosBinary].find(option => option.checked)?.dataset.label;
     } else if (perguntaSelecionada.type === "objective") {
-        for (let option of radiosObjective) {
-            if (option.checked) {
-                return option.dataset.label;
-            }
-        }
-
+        return [...radiosObjective].find(option => option.checked)?.dataset.label;
     } else {
         return textarea.value;
     }
-
-    return undefined;
 }
 
 // Função para zerar as respostas
 function zerarRespostas(perguntaSelecionada) {
-
     if (perguntaSelecionada.type === "binary") {
-        radiosBinary.forEach(option => {
-            option.checked = false
-        });
-
+        radiosBinary.forEach(option => (option.checked = false));
     } else if (perguntaSelecionada.type === "objective") {
-        radiosObjective.forEach(option => {
-            option.checked = false
-        });
-
+        radiosObjective.forEach(option => (option.checked = false));
     } else {
         textarea.value = "";
-
     }
 
     botaoProximo.classList.remove('active');
     botaoProximo.disabled = true;
-
 }
 
 botaoProximo.addEventListener("click", () => {
-
-    salvarResposta(perguntaAtual, perguntasSelecionadas[perguntaAtual], getResposta(perguntasSelecionadas[perguntaAtual]))
+    salvarResposta(perguntaAtual, perguntasSelecionadas[perguntaAtual], getResposta(perguntasSelecionadas[perguntaAtual]));
     perguntaAtual++;
 
-    // console.log(perguntaAtual);
-    if (perguntaAtual <= 11) {
-
-        mostrarPergunta(perguntasSelecionadas[perguntaAtual])
+    if (perguntaAtual < perguntasSelecionadas.length) {
+        mostrarPergunta(perguntasSelecionadas[perguntaAtual]);
     } else {
-        window.location.href = "resultados.html"
+        window.location.href = "resultados.html";
     }
-})
+});
 
 gerarPerguntas();
