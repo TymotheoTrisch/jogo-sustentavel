@@ -23,7 +23,7 @@
 
 .div-frase p {
     font-family: var(--font-bricolage);
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .frase-grafico .div-frase {
@@ -35,9 +35,6 @@
 }
 
 .div-grafico {
-    /* height: 300px; */
-    /* width: 100%; */
-    /* max-width: 400px; */
     width: min(400px, 100%);
     height: 420px;
     margin: auto;

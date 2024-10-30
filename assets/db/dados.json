@@ -1,267 +1,255 @@
 {
-  "categories": [
+  "questions": [
     {
-      "questions": [
-        {
-          "category": "Produto_Energia",
-          "type": "binary",
-          "question": "Você evita comprar produtos descartáveis?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "binary",
-          "question": "Você utiliza produtos de limpeza ecológicos?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "binary",
-          "question": "Você reutiliza sacolas plásticas para outras finalidades?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "objective",
-          "question": "Com que frequência você compra produtos a granel?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "objective",
-          "question": "Com que frequência você verifica a eficiência energética dos eletrodomésticos antes de comprá-los?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "objective",
-          "question": "Com que frequência você apaga as luzes ao sair de um cômodo?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "quantitative",
-          "question": "Quantas lâmpadas de LED você tem em sua casa?",
-          "unit": "uni",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "quantitative",
-          "question": "Quantos produtos orgânicos você compra por mês?",
-          "unit": "produtos",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Produto_Energia",
-          "type": "quantitative",
-          "question": "Quantos painéis solares você tem instalados?",
-          "unit": "painéis",
-          "correct_answer": "Maior número possível"
-        }
-      ]
+      "category": "Produto_Energia",
+      "type": "binary",
+      "question": "Você evita comprar produtos descartáveis?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
     },
     {
-      "questions": [
-        {
-          "category": "Transporte",
-          "type": "binary",
-          "question": "Você utiliza aplicativos de mobilidade compartilhada?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Transporte",
-          "type": "binary",
-          "question": "Você possui uma bicicleta para uso diário?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Transporte",
-          "type": "binary",
-          "question": "Você evita usar o carro em dias de rodízio?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Transporte",
-          "type": "objective",
-          "question": "Com que frequência você utiliza transporte público?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Transporte",
-          "type": "objective",
-          "question": "Com que frequência você caminha para destinos próximos?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Transporte",
-          "type": "objective",
-          "question": "Com que frequência você utiliza bicicleta para se locomover?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Transporte",
-          "type": "quantitative",
-          "question": "Quantos quilômetros você percorre de bicicleta por semana?",
-          "unit": "km",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Transporte",
-          "type": "quantitative",
-          "question": "Quantas vezes por semana você utiliza transporte público?",
-          "unit": "vezes",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Transporte",
-          "type": "quantitative",
-          "question": "Quantos dias por semana você caminha para destinos próximos?",
-          "unit": "dias",
-          "correct_answer": "Maior número possível"
-        }
-      ]
+      "category": "Produto_Energia",
+      "type": "binary",
+      "question": "Você utiliza produtos de limpeza ecológicos?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
     },
     {
-      "questions": [
-        {
-          "category": "Reciclagem",
-          "type": "binary",
-          "question": "Você recicla papel e papelão?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "binary",
-          "question": "Você participa de programas de reciclagem eletrônica?",
-          "answers": [
-            "Sim",
-            "Não"
-          ],
-          "correct_answer": "Sim"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "objective",
-          "question": "Com que frequência você separa o lixo reciclável?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "objective",
-          "question": "Com que frequência você reutiliza embalagens?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "objective",
-          "question": "Com que frequência você evita comprar produtos com embalagens não recicláveis?",
-          "answers": [
-            "Sempre",
-            "Frequentemente",
-            "Raramente",
-            "Nunca"
-          ],
-          "correct_answer": "Sempre"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "quantitative",
-          "question": "Quantos quilos de papel você recicla por mês?",
-          "unit": "kg",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "quantitative",
-          "question": "Quantos quilos de vidro você recicla por mês?",
-          "unit": "kg",
-          "correct_answer": "Maior número possível"
-        },
-        {
-          "category": "Reciclagem",
-          "type": "quantitative",
-          "question": "Quantos aparelhos eletrônicos você recicla por ano?",
-          "unit": "uni",
-          "correct_answer": "Maior número possível"
-        }
-      ]
+      "category": "Produto_Energia",
+      "type": "binary",
+      "question": "Você reutiliza sacolas plásticas para outras finalidades?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "objective",
+      "question": "Com que frequência você compra produtos a granel?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "objective",
+      "question": "Com que frequência você verifica a eficiência energética dos eletrodomésticos antes de comprá-los?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "objective",
+      "question": "Com que frequência você apaga as luzes ao sair de um cômodo?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "quantitative",
+      "question": "Quantas lâmpadas de LED você tem em sua casa?",
+      "unit": "unidades",
+      "min_answer": "4"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "quantitative",
+      "question": "Quantos produtos orgânicos você compra por mês?",
+      "unit": "produtos",
+      "min_answer": "5"
+    },
+    {
+      "category": "Produto_Energia",
+      "type": "quantitative",
+      "question": "Quantos painéis solares você tem instalados?",
+      "unit": "unidades",
+      "min_answer": "4"
+    },
+    {
+      "category": "Transporte",
+      "type": "binary",
+      "question": "Você utiliza aplicativos de mobilidade compartilhada?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Transporte",
+      "type": "binary",
+      "question": "Você possui uma bicicleta para uso diário?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Transporte",
+      "type": "binary",
+      "question": "Você evita usar o carro em dias de rodízio?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Transporte",
+      "type": "objective",
+      "question": "Com que frequência você utiliza transporte público?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Transporte",
+      "type": "objective",
+      "question": "Com que frequência você caminha para destinos próximos?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Transporte",
+      "type": "objective",
+      "question": "Com que frequência você utiliza bicicleta para se locomover?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Transporte",
+      "type": "quantitative",
+      "question": "Quantos quilômetros você percorre de bicicleta por semana?",
+      "unit": "km",
+      "min_answer": "15"
+    },
+    {
+      "category": "Transporte",
+      "type": "quantitative",
+      "question": "Quantas vezes por semana você utiliza transporte público?",
+      "unit": "vezes",
+      "min_answer": "4"
+    },
+    {
+      "category": "Transporte",
+      "type": "quantitative",
+      "question": "Quantos dias por semana você caminha para destinos próximos?",
+      "unit": "dias",
+      "min_answer": "2"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "binary",
+      "question": "Você recicla papel e papelão?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "binary",
+      "question": "Você participa de programas de reciclagem eletrônica?",
+      "answers": [
+        "Sim",
+        "Não"
+      ],
+      "correct_answer": "Sim"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "objective",
+      "question": "Com que frequência você separa o lixo reciclável?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "objective",
+      "question": "Com que frequência você reutiliza embalagens?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "objective",
+      "question": "Com que frequência você evita comprar produtos com embalagens não recicláveis?",
+      "answers": [
+        "Sempre",
+        "Frequentemente",
+        "Raramente",
+        "Nunca"
+      ],
+      "correct_answer": "Sempre"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "quantitative",
+      "question": "Quantos quilos de papel você recicla por mês?",
+      "unit": "kg",
+      "min_answer": "3"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "quantitative",
+      "question": "Quantos quilos de vidro você recicla por mês?",
+      "unit": "kg",
+      "min_answer": "2"
+    },
+    {
+      "category": "Reciclagem",
+      "type": "quantitative",
+      "question": "Quantos aparelhos eletrônicos você recicla por ano?",
+      "unit": "unidades",
+      "min_answer": "1"
     }
   ]
 }

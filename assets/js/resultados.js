@@ -5,6 +5,56 @@ async function obterDadosCalculo() {
     return resultados;
 }
 
+// Função para apagar os dados do quiz
+function apagarForm() {
+    localStorage.removeItem('pontuacoes');
+
+    console.log("Dados do quiz apagados:", localStorage.getItem('pontuacoes') === null);
+
+    window.location.href = "../../index.html"
+}
+
+// Função para apagar e refazer os dados do quiz
+function refazerForm() {
+    localStorage.removeItem('pontuacoes');
+
+    console.log("Dados do quiz apagados:", localStorage.getItem('pontuacoes') === null);
+
+    window.location.href = "pergunta.html"
+}
+
+async function textoEImagem() {
+    try {
+        const dados = await obterDadosCalculo();
+        
+        const tituloFinal = document.getElementById('titulo');
+        const imgFinal = document.getElementById('img-final');
+        const fraseFinalM = document.getElementById('frase-final-mobile');
+        const fraseFinalD = document.getElementById('frase-final-desktop');
+        
+        
+        if(dados.pontuacaoTotal < 4) {
+            tituloFinal.innerText = "Você precisa melhorar!";
+            imgFinal.src = "../images/imagem_final_pessimo.svg";
+            fraseFinalM.innerText = "Obrigado por participar! Há várias áreas em que você pode melhorar suas práticas sustentáveis. Melhore a cada dia!";
+            fraseFinalD.innerText = "Obrigado por participar! Há várias áreas em que você pode melhorar suas práticas sustentáveis. Melhore a cada dia!";
+        } else if(dados.pontuacaoTotal < 8) {
+            tituloFinal.innerText = "Você está quase lá!";
+            imgFinal.src = "../images/imagem_final_mediano.svg";
+            fraseFinalM.innerText = "Bom trabalho! Seus hábitos são sustentáveis em muitas áreas, mas há algumas oportunidades de melhoria. Aprimore elas!";
+            fraseFinalD.innerText = "Bom trabalho! Seus hábitos são sustentáveis em muitas áreas, mas há algumas oportunidades de melhoria. Aprimore elas!";
+        } else {
+            tituloFinal.innerText = "Você foi muito bem!";
+            imgFinal.src = "../images/imagem_final_bom.svg";
+            fraseFinalM.innerText = "Parabéns! Você tem ótimos hábitos que contribuem positivamente para o meio ambiente. Continue assim!";
+            fraseFinalD.innerText = "Parabéns! Você tem ótimos hábitos que contribuem positivamente para o meio ambiente. Continue assim!";
+        }
+    } catch (error) {
+        console.log("Error: " + error);
+        
+    }
+}
+
 async function renderizarGraficos() {
     try {
 
@@ -232,4 +282,5 @@ async function renderizarGraficos() {
     }
 }
 
+textoEImagem();
 renderizarGraficos();

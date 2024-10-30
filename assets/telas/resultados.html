@@ -19,22 +19,20 @@
     <main class="container">
         <div class="desktop">
             <div class="div-titulo">
-                <p id="titulo" class="verde">Você foi muito bem!</p>
+                <p id="titulo" class="verde"></p>
             </div>
 
             <div class="div-img">
-                <img src="../images/imagem_.final_bom.svg" alt="">
+                <img id="img-final" src="" alt="">
             </div>
 
             <div class="div-frase">
-                <p class="verde">Parabéns! Você tem ótimos hábitos que contribuem positivamente para o meio
-                    ambiente. Continue assim!</p>
+                <p class="verde" id="frase-final-mobile"></p>
             </div>
         </div>
         <div class="frase-grafico">
             <div class="div-frase">
-                <p class="verde">Parabéns! Você tem ótimos hábitos que contribuem positivamente para o meio
-                    ambiente. Continue assim!</p>
+                <p class="verde" id="frase-final-desktop"></p>
             </div>
             <div class="graficos">
                 <div class="div-grafico grafico1" id="chart-pontuacao-total"></div>
@@ -44,8 +42,8 @@
         </div>
 
         <div class="btns">
-            <button type="button" class="btn-refazer"><img src="../images/pen.svg" alt="" srcset="">Refazer</button>
-            <button type="button" class="btn-apagar"><img src="../images/trash.svg" alt="" srcset="">Apagar</button>
+            <button type="button" class="btn-refazer" onclick="refazerForm()"><img src="../images/pen.svg" alt="" srcset="">Refazer</button>
+            <button type="button" class="btn-apagar" onclick="apagarForm()"><img src="../images/trash.svg" alt="" srcset="">Apagar</button>
         </div>
     </main>
 
