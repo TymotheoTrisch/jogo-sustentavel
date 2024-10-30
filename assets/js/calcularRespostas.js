@@ -1,9 +1,6 @@
 async function calcularRespostas() {
     const respostasUsuario = JSON.parse(localStorage.getItem('pontuacoes'));
 
-    // console.log(respostasUsuario);
-
-
     const response = await fetch('../db/dados.json');
     const perguntas = await response.json();
 
@@ -36,8 +33,6 @@ async function calcularRespostas() {
 
             if (pergunta.type === "quantitative") {
                 correta = respostaUsuario.resposta >= pergunta.min_answer;
-                console.log(correta);
-                
 
             } else if (pergunta.type === "objective") {
                 const valorUsuario = escalaObjetiva[respostaUsuario.resposta];
@@ -63,8 +58,6 @@ async function calcularRespostas() {
     });
 
     const pontuacaoTotal = Object.values(resultadosPorCategoria).reduce((acc, curr) => acc + curr, 0);
-
-    console.log(pontuacaoTotal);
     
 
     return { resultadosPorCategoria, acertosPorCategoria, pontuacaoTotal };

@@ -112,10 +112,10 @@ async function gerarPerguntas() {
     perguntasSelecionadas = selecionarPerguntasSemDuplicidade(dados, [
         { tipo: "binary", quantidade: 3, categoria: "Produto_Energia" },
         { tipo: "objective", quantidade: 1, categoria: "Produto_Energia" },
-        { tipo: "objective", quantidade: 1, categoria: "Transporte" },
         { tipo: "objective", quantidade: 3, categoria: "Transporte" },
-        { tipo: "objective", quantidade: 1, categoria: "Reciclagem" },
-        { tipo: "quantitative", quantidade: 3, categoria: "Reciclagem" }
+        { tipo: "quantitative", quantidade: 1, categoria: "Transporte" },
+        { tipo: "quantitative", quantidade: 3, categoria: "Reciclagem" },
+        { tipo: "objective", quantidade: 1, categoria: "Reciclagem" }
     ]);
 
     localStorage.setItem('perguntas', JSON.stringify(perguntasSelecionadas));

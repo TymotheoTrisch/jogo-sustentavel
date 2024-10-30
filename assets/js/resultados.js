@@ -26,19 +26,19 @@ function refazerForm() {
 async function textoEImagem() {
     try {
         const dados = await obterDadosCalculo();
-
+        
         const tituloFinal = document.getElementById('titulo');
         const imgFinal = document.getElementById('img-final');
         const fraseFinalM = document.getElementById('frase-final-mobile');
         const fraseFinalD = document.getElementById('frase-final-desktop');
-
-
-        if (dados.pontuacaoTotal < 4) {
+        
+        
+        if(dados.pontuacaoTotal < 4) {
             tituloFinal.innerText = "Você precisa melhorar!";
             imgFinal.src = "../images/imagem_final_pessimo.svg";
             fraseFinalM.innerText = "Obrigado por participar! Há várias áreas em que você pode melhorar suas práticas sustentáveis. Melhore a cada dia!";
             fraseFinalD.innerText = "Obrigado por participar! Há várias áreas em que você pode melhorar suas práticas sustentáveis. Melhore a cada dia!";
-        } else if (dados.pontuacaoTotal < 8) {
+        } else if(dados.pontuacaoTotal < 8) {
             tituloFinal.innerText = "Você está quase lá!";
             imgFinal.src = "../images/imagem_final_mediano.svg";
             fraseFinalM.innerText = "Bom trabalho! Seus hábitos são sustentáveis em muitas áreas, mas há algumas oportunidades de melhoria. Aprimore elas!";
@@ -51,7 +51,7 @@ async function textoEImagem() {
         }
     } catch (error) {
         console.log("Error: " + error);
-
+        
     }
 }
 
@@ -63,7 +63,7 @@ async function renderizarGraficos() {
         const acertosPorCategoria = dados.acertosPorCategoria;
         const resultadosPorCategoria = dados.resultadosPorCategoria;
         const total = dados.pontuacaoTotal;
-
+        
         var chartPontuacaoPorCategoriaGeral = document.getElementById('chart-categoria');
         var chartPontuacao = echarts.init(chartPontuacaoPorCategoriaGeral, null, {
             renderer: 'canvas',
@@ -186,9 +186,9 @@ async function renderizarGraficos() {
         });
 
 
-
+        
         // Configuração do gráfico de pizza
-        const maxPontuacao = 10;
+        const maxPontuacao = 12;
 
         const optionPontuacaoTotal = {
             title: {
@@ -208,24 +208,14 @@ async function renderizarGraficos() {
                         itemStyle: { color: '#73a373' }
                     },
                     {
-                        value: maxPontuacao - total,
+                        value: maxPontuacao - total ,
                         name: 'Restante',
                         itemStyle: { color: '#e0e0e0' }
                     }
                 ]
-            }],
-            graphic: {
-                type: 'text',
-                left: 'center',
-                top: 'center',
-                style: {
-                    text: `${total}`,  // Mostra a pontuação do usuário
-                    fontSize: 55,
-                    fontWeight: 'bold',
-                    fill: '#333'  // Cor do texto no centro
-                }
-            }
+            }]
         };
+
 
         const chartPontuacaoTotal = echarts.init(document.getElementById('chart-pontuacao-total'));
         chartPontuacaoTotal.setOption(optionPontuacaoTotal);
@@ -233,7 +223,6 @@ async function renderizarGraficos() {
         window.addEventListener('resize', function () {
             chartPontuacaoTotal.resize();
         });
-
 
         // Gráfico pontuação de acertos e erros
         const optionPontuacaoPorCategoria = {
