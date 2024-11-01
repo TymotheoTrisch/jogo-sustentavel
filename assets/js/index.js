@@ -8,7 +8,7 @@ function verificarTermino() {
     if (totalRespostas === 12) {
         window.location.href = './assets/telas/resultados.html';
     }
-    
+
 }
 
 function verificarPerguntas() {
@@ -17,8 +17,11 @@ function verificarPerguntas() {
         (respostas.Produto_Energia?.length || 0) +
         (respostas.Transporte?.length || 0) +
         (respostas.Reciclagem?.length || 0);
-    
-    if(totalRespostas >= 1 && totalRespostas < 12) {
+
+    localStorage.removeItem('pontuacoes');
+
+
+    if (totalRespostas >= 1 && totalRespostas < 12) {
         window.location.href = './assets/telas/pergunta.html'
     }
 }
