@@ -85,6 +85,7 @@ function salvarResposta(index, pergunta, resposta) {
     });
 
     localStorage.setItem('pontuacoes', JSON.stringify(pontuacao));
+    
 }
 
 // Função para gerar perguntas
@@ -200,6 +201,23 @@ function zerarRespostas(perguntaSelecionada) {
     botaoProximo.disabled = true;
 }
 
+function verificarTermino() {
+    const respostas = JSON.parse(localStorage.getItem('pontuacoes'))
+    
+    if(respostas === null) {
+        return;
+    }
+    const totalRespostas =
+        (respostas.Produto_Energia?.length || 0) +
+        (respostas.Transporte?.length || 0) +
+        (respostas.Reciclagem?.length || 0);
+
+    if (totalRespostas === 12) {
+        window.location.href = './resultados.html';
+    }
+    
+}
+
 botaoProximo.addEventListener("click", () => {
     salvarResposta(perguntaAtual, perguntasSelecionadas[perguntaAtual], getResposta(perguntasSelecionadas[perguntaAtual]));
     perguntaAtual++;
@@ -211,4 +229,5 @@ botaoProximo.addEventListener("click", () => {
     }
 });
 
+verificarTermino();
 gerarPerguntas();
